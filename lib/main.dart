@@ -18,15 +18,6 @@ class MyApp extends StatelessWidget {
 }
 
 class RandomWordsState extends State<RandomWords> {
-  // String _randomText = 'Hello World';
-
-  // void _generateRandomText() {
-  //   setState(() {
-  //     final wordPair = WordPair.random();
-  //     _randomText = wordPair.asPascalCase;
-  //   });
-  // }
-
   final _suggestions = <WordPair>[];
   final Set<WordPair> _saved = Set<WordPair>();
   final _biggerFont = const TextStyle(fontSize: 18.0);
@@ -69,12 +60,10 @@ class RandomWordsState extends State<RandomWords> {
         style: _biggerFont,
       ),
       trailing: Icon(
-        // Add the lines from here...
         alreadySaved ? Icons.favorite : Icons.favorite_border,
         color: alreadySaved ? Colors.red : null,
       ),
       onTap: () {
-        // Add 9 lines from here...
         setState(() {
           if (alreadySaved) {
             _saved.remove(pair);
@@ -106,13 +95,12 @@ class RandomWordsState extends State<RandomWords> {
       appBar: AppBar(
         title: Text('Welcome to Flutter'),
         actions: <Widget>[
-          // Add 3 lines from here...
           IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
         ],
       ),
       body: _buildSuggestions(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {}, //_generateRandomText,
+        onPressed: () => {},
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
